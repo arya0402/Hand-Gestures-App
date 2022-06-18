@@ -1,4 +1,4 @@
-predicition_1 = "";
+prediction_1 = "";
 
 Webcam.set({
     width: 350,
@@ -35,15 +35,15 @@ function gotResult(error, results) {
     else {
         console.log(results);
         document.getElementById("result_emotion_name").innerHTML = results[0].label;
-        predicition_1 = results[0].label;
+        prediction_1 = results[0].label;
         speak();
-        if(predicition_1 == "Good") {
+        if(prediction_1 == "Good") {
             document.getElementById("result_emoji").innerHTML = "&#128077;";
         }
-        if(predicition_1 == "Amazing") {
+        if(prediction_1 == "Amazing") {
             document.getElementById("result_emoji").innerHTML = "&#128076;";
         }
-        if(predicition_1 == "Victory") {
+        if(results[0].label == "Victory") {
             document.getElementById("result_emoji").innerHTML = "&#9996;";
         }
 
