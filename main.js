@@ -25,7 +25,7 @@ function modelLoaded() {
 
 function speak() {
     var synth = window.speechSynthesis;
-    speak_data_1 = "the first prediction is " + prediction_1;
+    speak_data_1 = "the prediction is " + prediction_1;
     var utterThis = new SpeechSynthesisUtterance(speak_data_1);
     synth.speak(utterThis);
 }
