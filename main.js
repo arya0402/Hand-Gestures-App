@@ -22,3 +22,34 @@ classifier = ml5.imageClassifier("https://teachablemachine.withgoogle.com/models
 function modelLoaded() {
     console.log("Model loaded");
 }
+
+function check() {
+    img = document.getElementById("captured_img");
+    classifier.classify(img, gotResult); 
+}
+
+function gotResult(error, results) {
+    if(error) {
+        console.error(error);
+    }
+    else {
+        console.log(results);
+        document.getElementById("result_emotion_name").innerHTML = results[0].label;
+        predicition_1 = results[0].label;
+        speak();
+        if(predicition_1 == "Good") {
+            document.getElementById("result_emoji").innerHTML = "&#128077;";
+        }
+        if(predicition_1 == "Amazing") {
+            document.getElementById("result_emoji").innerHTML = "&#128076;";
+        }
+        if(predicition_1 == "Victory") {
+            document.getElementById("result_emoji").innerHTML = "&#9996;";
+        }
+
+        function speak() {
+            var synth = window.speechSynthesis;
+            speak_data_1 = "the first prediction is " + predicition_1;
+            var utterThis = new SpeechSynthesisUtterance(speak_data_1);
+            synth.speak(utterThis);
+        }
