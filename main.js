@@ -30,7 +30,7 @@ function speak() {
     synth.speak(utterThis);
 }
 
-function predict_emotion() {
+function predict_gesture() {
     img = document.getElementById("captured_img");
     classifier.classify(img, gotResult);
 }
